@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <link href="styles/style.css" rel="stylesheet" type="text/css" />
+  <title>Captcha!</title>
+</head>
+<body>
+  <div class="container">
+    <form style="position: relative; width: 275px; background: #eee; border: 1px solid #777; margin: 2px 0 2px 0;">
+      <div>
+        <button style="font-size: 11px; padding: 0px; width: 90px; box-sizing: border-box; margin: 0px 6px 0px 0px; vertical-align: middle; height: 18px;">Get Captcha</button>
+        <input type="text" placeholder="Type the CAPTCHA here" style="width: 160px; box-sizing: border-box; text-transform: uppercase; font-size: 11px; height: 18px; margin: 0px; padding: 0px 2px; font-family: monospace; vertical-align: middle;"/>
+      </div>
+
+      <div style="width: 275px; height: 96px; position: relative; display: flex; overflow:auto;">
+        <div style="overflow:auto; background-position: 0px top; width: 325px; height: 100%; position: absolute;background-repeat: no-repeat;
+        background-image: url('img/background.png');">
+        </div>
+        <div style="background-position: 0px top; width: 325px; height: 81px; position: fixed;
+        background-repeat: no-repeat; background-image: url('img/foreground.png');">
+        </div>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

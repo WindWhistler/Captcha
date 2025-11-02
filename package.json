@@ -1,0 +1,17 @@
+{
+  "name": "4ccaptcha",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node ./src/server.js",
+    "express": "node ./src/express.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "express": "^5.1.0",
+    "http": "^0.0.1-security"
+  }
+}
