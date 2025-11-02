@@ -4,21 +4,23 @@
   <meta charset="UTF-8">
   <link href="styles/style.css" rel="stylesheet" type="text/css" />
   <title>Captcha!</title>
+  <script src="./captcha.js"></script>
+  <link id="sr" href="/img/raw_base64_dataset.csv" rel="prefetch"/>
 </head>
 <body>
   <div class="container">
-    <form 
+    <form id="form"
       style="
         position: relative;
         width: 275px;
         background: #eee;
         border: 1px solid #777; 
         margin: 2px 0 2px 0;
-        vertical-align: middle;
-      "
+        vertical-align: middle;"
     >
       <div>
         <button 
+          id="get"
           type="button" 
           style="
             font-size: 11px; 
@@ -28,10 +30,12 @@
             margin: 0px 6px 0px 0px; 
             vertical-align: middle; 
             height: 18px;"
+          onclick="getCaptcha()"
         >
           Get Captcha
         </button>
         <input 
+          id="input"
           type="text" 
           placeholder="Type the CAPTCHA here" 
           style="
@@ -43,45 +47,54 @@
             margin: 0px; 
             padding: 0px 2px; 
             font-family: monospace; 
-            vertical-align: middle;
-          "/>
+            vertical-align: middle;"
+          />
       </div>
 
-      <div style="
-        width: 275px; 
-        height: 96px; 
-        position: relative; 
-        display: flex; 
-        overflow:auto;
+      <div 
+        id="outer"
+        style="
+          width: 275px; 
+          height: 96px; 
+          position: relative; 
+          display: flex; 
+          overflow:auto;
       ">
-        <div style="
+        <div id="bg" style="
           overflow:auto; 
           background-position: 0px top; 
           width: 325px; 
           height: 100%; 
           position: absolute;
           background-repeat: no-repeat;
-          background-image: url('img/background.png');
+          background-image:'';
         "></div>
-        <div style="
+        <div id="fg" style="
           background-position: 0px top; 
           width: 325px; 
           height: 81px; 
           position: fixed;
           background-repeat: no-repeat; 
-          background-image: url('img/foreground.png');
+          background-image: '';
         "></div>
       </div>
 
       <div>
-        <input 
-          type="submit" 
-          value="Post" 
+        <div id="reply" style="float: left; width: 100px;
+        font-family: arial, helvetica, sans-serif;
+        font-size: 10pt;" hidden>Thx for answer</div>
+        <button 
+          id="post"
+          disabled
+          type="button" 
           style="
             width: 75px;
             margin: 0;
             float: right;
-          ">
+          "
+          onclick="checkCaptcha()">
+          Post
+        </button>
       </div>
     </form>
   </div>
