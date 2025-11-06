@@ -97,7 +97,6 @@ async function checkCaptcha() {
 
   testAnswer = document.getElementById("input").value;
   document.getElementById("input").value = "";
-  mode = 'use';
   if (mode == 'dev') {
     rep = document.getElementById("reply");
     rep.hidden = false;
