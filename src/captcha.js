@@ -53,6 +53,13 @@ async function getCaptcha() {
   post.disabled = false;
   rep = document.getElementById("reply");
   rep.hidden = true;
+
+  let get = document.getElementById("get");
+  get.disabled = true;
+  setTimeout(() => {
+    let get = document.getElementById("get");
+    get.disabled = false;
+  }, 10000)
 }
 
 function getRandomInt(max) {
@@ -90,6 +97,7 @@ async function checkCaptcha() {
 
   testAnswer = document.getElementById("input").value;
   document.getElementById("input").value = "";
+  mode = 'use';
   if (mode == 'dev') {
     rep = document.getElementById("reply");
     rep.hidden = false;
@@ -107,8 +115,50 @@ async function checkCaptcha() {
     });
   }
   else {
-    //Проверять ответ, делать красивости
-    //res = await fetch()
+    if (testAnswer == answer) {
+      document.getElementById("result").setAttribute("style", `
+      font-size: 72px; 
+      font-weight: bold;
+      text-align: center;
+      margin-top: 0px;
+      position: absolute;
+      left: 0; 
+      right: 0; 
+      margin-inline: auto; 
+      width: 100%;
+      height: 100%;
+      color: #18af0a;
+      background-color: #79f36e;
+      font-family: myFont;
+      letter-spacing: 2px;
+      z-index: 99;`);
+      smtxt = document.getElementById("smtxt")
+      smtxt.textContent = "Success!"
+    }
+    else {
+      document.getElementById("result").setAttribute("style", `
+      font-size: 72px; 
+      font-weight: bold;
+      text-align: center;
+      margin-top: 0px;
+      position: absolute;
+      left: 0; 
+      right: 0; 
+      margin-inline: auto; 
+      width: 100%;
+      height: 100%;
+      color: #af0a0aff;
+      background-color: #f36e6eff;
+      font-family: myFont;
+      letter-spacing: 2px;
+      z-index: 99;`);
+      smtxt = document.getElementById("smtxt")
+      smtxt.textContent = "Failure!"
+    }
+    document.getElementById("result").setAttribute("class", "fade-element show");
+    setTimeout(() => {
+      document.getElementById("result").setAttribute("class", "fade-element");
+    }, 7000);
   }
 }
 

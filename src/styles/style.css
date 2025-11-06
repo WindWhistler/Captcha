@@ -40,4 +40,18 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-  }
+}
+
+.fade-element {
+  opacity: 0; /* Start completely transparent */
+  transition: opacity 0.5s ease-in-out; /* Transition opacity over 0.5 seconds */
+}
+
+.fade-element.show {
+  opacity: 1; /* Fully visible */
+}
+
+@font-face {
+  font-family: myFont; /* set name */
+  src: url(PixelifySans.ttf); /* url of the font */
+}
