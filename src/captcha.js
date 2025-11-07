@@ -97,7 +97,7 @@ async function checkCaptcha() {
 
   testAnswer = document.getElementById("input").value;
   document.getElementById("input").value = "";
-  if (mode == 'dev') {
+  if (mode === 'dev') {
     rep = document.getElementById("reply");
     rep.hidden = false;
     res = await fetch(this.location.origin = "/captcha/" + t, {
@@ -114,7 +114,7 @@ async function checkCaptcha() {
     });
   }
   else {
-    if (testAnswer == answer) {
+    if (testAnswer.toUpperCase() === answer.toUpperCase()) {
       document.getElementById("result").setAttribute("style", `
       font-size: 72px; 
       font-weight: bold;
