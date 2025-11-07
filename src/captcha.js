@@ -138,6 +138,24 @@ async function checkCaptcha() {
       z-index: 99;`);
       smtxt = document.getElementById("smtxt")
       smtxt.textContent = "Success!"
+      setTimeout(() => {
+        document.getElementById("result").setAttribute("style", `
+        font-size: 72px; 
+        font-weight: bold;
+        text-align: center;
+        margin-top: 0px;
+        position: absolute;
+        left: 0; 
+        right: 0; 
+        margin-inline: auto; 
+        width: 100%;
+        height: 100%;
+        color: #18af0a;
+        background-color: #79f36e;
+        font-family: myFont;
+        letter-spacing: 2px;
+        z-index: -99;`);
+      }, 7400);
     }
     else {
       document.getElementById("result").setAttribute("style", `
@@ -158,6 +176,24 @@ async function checkCaptcha() {
       z-index: 99;`);
       smtxt = document.getElementById("smtxt")
       smtxt.textContent = "Failure!"
+      setTimeout(() => {
+        document.getElementById("result").setAttribute("style", `
+          font-size: 72px; 
+          font-weight: bold;
+          text-align: center;
+          margin-top: 0px;
+          position: absolute;
+          left: 0; 
+          right: 0; 
+          margin-inline: auto; 
+          width: 100%;
+          height: 100%;
+          color: #af0a0aff;
+          background-color: #f36e6eff;
+          font-family: myFont;
+          letter-spacing: 2px;
+          z-index: -99;`);
+      }, 7400);
     }
     document.getElementById("result").setAttribute("class", "fade-element show");
     setTimeout(() => {
