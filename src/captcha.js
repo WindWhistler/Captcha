@@ -1,9 +1,14 @@
 async function getCaptcha() {
   console.log("Hi anon!");
   do {
-    t=1+getRandomInt(16000);
+    t=0+getRandomInt(79);
     currentCaptcha = await getNewCaptcha(t);
   } while (getPngDimensions(currentCaptcha.fg).width < 275)
+  // if(typeof(t) === 'undefined')
+  //   t = 0;
+  // else
+  //   t += 1;
+  currentCaptcha = await getNewCaptcha(t);
   document.getElementById("input").value = "";
 
   console.log(getPngDimensions(currentCaptcha.fg).width);
@@ -17,10 +22,10 @@ async function getCaptcha() {
   bg.setAttribute("style",`
     overflow:auto; 
     background-position: 0px top; 
-    width: ${getPngDimensions(currentCaptcha.bg).width}px; 
+    width: ${getPngDimensions(currentCaptcha.bg).width*2}px; 
     height: 100%; 
     position: absolute;
-    background-repeat: no-repeat;
+    background-repeat: repeat-x;
     background-image: url("data:image/png;base64,` + currentCaptcha.bg + `");`
   );
   fg.setAttribute("style",`
